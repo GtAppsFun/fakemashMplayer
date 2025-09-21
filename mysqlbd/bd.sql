@@ -8,7 +8,7 @@ erating int,
 matchplayed int DEFAULT 0,
 PRIMARY KEY (playerId)
 );
-
+/*
 CREATE TABLE MATCHS (
     matchId int NOT NULL AUTO_INCREMENT,
     playerIdA int,
@@ -17,6 +17,7 @@ CREATE TABLE MATCHS (
     CONSTRAINT FK_PlayerA FOREIGN KEY (playerIdA) REFERENCES PLAYER(playerId),
     CONSTRAINT FK_PlayerB FOREIGN KEY (playerIdB) REFERENCES PLAYER(playerId)
 );
+*/
 
 
 
