@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  php-apache:
+    build:
+      context: ./php
+    container_name: php-apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: gtfakeu$$er
+      MYSQL_PASSWORD: fakepa$$
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+
+volumes:
+  mysql_data:
