@@ -20,12 +20,13 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: mydb
-      MYSQL_USER: gtfakeu$$er
-      MYSQL_PASSWORD: fakepa$$
+      MYSQL_USER: gtuser
+      MYSQL_PASSWORD: root
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - ./mysqlbd/db.sql:/docker-entrypoint-initdb.d/db.sql
+      - ./mysqlimages:/var/lib/mysql-files
     networks:
       - app-network
 
